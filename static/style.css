@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    background: #e3e3e3;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #efefef;
+    padding: 15px 25px;
+}
+
+.search-bar {
+    width: 500px;
+    height: 40px;
+    background: #0a0a0a;
+    border-radius: 20px;
+}
+
+.logo {
+    font-size: 40px;
+    letter-spacing: 4px;
+}
+
+.icons span {
+    font-size: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+    padding: 40px;
+}
+
+.card {
+    background: #444;
+    padding: 10px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.title {
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+}

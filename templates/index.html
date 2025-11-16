@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Discogs</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="search-bar"></div>
+    <h1 class="logo">DISCOGS</h1>
+    <div class="icons">
+        <span class="cart">🛒</span>
+        <span class="menu">☰</span>
+    </div>
+</header>
+
+<div class="gallery">
+    {% for album in albums %}
+    <div class="card">
+        <img src="/static/{{ album.img }}" alt="{{ album.title }}">
+        <p class="title">{{ album.title }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

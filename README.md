@@ -1,2 +1,0 @@
-# Disquera
-Pagina Web
