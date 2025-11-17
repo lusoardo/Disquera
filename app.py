@@ -3,7 +3,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 albums = [
-    {img src="/static/unmechon.jpg"},
+    {"img": "unmechon.jpg", "title": "UN MECHON DE PELO"},
     {"img": "tinitini.jpg", "title": "TINI TINI TINI"},
     {"img": "tini1.jpg", "title": "TINI MARTINA STOESSEL"},
     {"img": "cupido.jpg", "title": "CUPIDO"},
