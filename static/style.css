@@ -1,35 +1,85 @@
+/* Estilo general */
 body {
     margin: 0;
-    background: #e3e3e3;
     font-family: Arial, sans-serif;
+    background: #121212;
+    color: white;
 }
+
+/* ---- Página principal ---- */
+
+.home-body {
+    background: url('vinyl-bg.jpg') center/cover no-repeat fixed;
+}
+
+.home-container {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.home-title {
+    font-size: 80px;
+    letter-spacing: 10px;
+    font-weight: bold;
+}
+
+.home-sub {
+    margin-top: -20px;
+    font-size: 22px;
+    opacity: 0.8;
+}
+
+.home-buttons {
+    margin-top: 40px;
+}
+
+.btn {
+    display: inline-block;
+    background: #e63946;
+    padding: 15px 40px;
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #b02430;
+    transform: scale(1.05);
+}
+
+/* ---- Página de discos ---- */
 
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #efefef;
+    background: #202020;
     padding: 15px 25px;
-}
-
-.search-bar {
-    width: 500px;
-    height: 40px;
-    background: #0a0a0a;
-    border-radius: 20px;
 }
 
 .logo {
     font-size: 40px;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 }
 
-.icons span {
-    font-size: 30px;
-    margin-left: 20px;
-    cursor: pointer;
+.back {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
 }
 
+.search-bar {
+    width: 350px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    padding: 0 15px;
+}
+
+/* Galería */
 .gallery {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -38,18 +88,28 @@ body {
 }
 
 .card {
-    background: #444;
+    background: #333;
     padding: 10px;
     text-align: center;
+    border-radius: 10px;
 }
 
 .card img {
     width: 100%;
-    height: auto;
+    border-radius: 6px;
 }
 
 .title {
-    color: white;
     margin-top: 10px;
     font-weight: bold;
+}
+
+/* ---- Historia ---- */
+
+.historia-container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 20px;
+    background: #1f1f1f;
+    border-radius: 15px;
 }

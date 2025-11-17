@@ -5,24 +5,16 @@
     <title>Discogs</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
-<body>
+<body class="home-body">
 
-<header class="header">
-    <div class="search-bar"></div>
-    <h1 class="logo">DISCOGS</h1>
-    <div class="icons">
-        <span class="cart">🛒</span>
-        <span class="menu">☰</span>
-    </div>
-</header>
+<div class="home-container">
+    <h1 class="home-title">DISCOGS</h1>
+    <p class="home-sub">Tu disquería favorita</p>
 
-<div class="gallery">
-    {% for album in albums %}
-    <div class="card">
-        <img src="/static/{{ album.img }}" alt="{{ album.title }}">
-        <p class="title">{{ album.title }}</p>
+    <div class="home-buttons">
+        <a href="/discos" class="btn">Ver Discos</a>
+        <a href="/historia" class="btn">Historia del Lugar</a>
     </div>
-    {% endfor %}
 </div>
 
 </body>

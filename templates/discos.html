@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Discos</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="/" class="back">⬅ Volver</a>
+    <input id="search" type="text" placeholder="Buscar álbum..." class="search-bar">
+    <h1 class="logo">DISCOS</h1>
+</header>
+
+<div class="gallery">
+    {% for album in albums %}
+    <div class="card" data-title="{{ album.title | lower }}">
+        <img src="/static/{{ album.img }}" alt="{{ album.title }}">
+        <p class="title">{{ album.title }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    const searchInput = document.getElementById("search");
+    const cards = document.querySelectorAll(".card");
+
+    searchInput.addEventListener("input", function() {
+        const query = this.value.toLowerCase();
+
+        cards.forEach(card => {
+            const title = card.getAttribute("data-title");
+
+            if (title.includes(query)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

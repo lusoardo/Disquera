@@ -2,9 +2,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Lista de álbumes con su imagen y título
 albums = [
-    {"img": "unmechon.jpg", "title": "UN MECHON DE PELO"},
+    {img src="/static/unmechon.jpg"},
     {"img": "tinitini.jpg", "title": "TINI TINI TINI"},
     {"img": "tini1.jpg", "title": "TINI MARTINA STOESSEL"},
     {"img": "cupido.jpg", "title": "CUPIDO"},
@@ -25,8 +24,16 @@ albums = [
 ]
 
 @app.route("/")
-def index():
-    return render_template("index.html", albums=albums)
+def home():
+    return render_template("index.html")
+
+@app.route("/discos")
+def discos():
+    return render_template("discos.html", albums=albums)
+
+@app.route("/historia")
+def historia():
+    return render_template("historia.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
