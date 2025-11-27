@@ -263,5 +263,54 @@ body {
     background: #E8A87C;
     transform: scale(1.1);
 }
+/* ---- PÁGINA "COMPRA FINALIZADA" RETRO ---- */
+
+.finalizado-container {
+    max-width: 600px;
+    margin: 100px auto;
+    background: #E8A87C; /* naranja suave */
+    border: 5px solid #6B3E2E; /* marrón retro */
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 6px 6px 0 #D66C3A; /* sombra retro */
+    font-family: "Georgia", serif;
+}
+
+.finalizado-title {
+    font-size: 45px;
+    color: #6B3E2E;
+    text-shadow: 
+        2px 2px 0 #FFF8E0,
+        4px 4px 0 #D66C3A;
+    margin-bottom: 20px;
+}
+
+.finalizado-text {
+    font-size: 20px;
+    color: #3A1F15;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* BOTÓN VINTAGE */
+.btn-disco {
+    background: #D66C3A;
+    color: #FFF8E0;
+    padding: 18px 30px;
+    border-radius: 12px;
+    font-size: 22px;
+    text-decoration: none;
+    font-family: "Georgia", serif;
+    border: 4px solid #6B3E2E;
+    transition: 0.2s;
+}
+
+.btn-disco:hover {
+    background: #E8A87C;
+    transform: scale(1.08);
+    color: #6B3E2E;
+}
+
 
 
