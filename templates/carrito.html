@@ -5,52 +5,51 @@
     <title>Carrito</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
-<body style="background:#FFF8E0;">
 
-<header class="header">
-    <a href="/" class="back">⬅ Volver</a>
+<body class="home-body">
 
-    <h1 class="logo">CARRITO</h1>
+    <header class="header">
+        <div class="logo">DISQUERA</div>
+        <a href="/discos" class="back">⬅ Volver</a>
+    </header>
 
-    <a href="/carrito" class="cart-icon" style="color:#FFF8E0; font-size:22px;">
-        🛒 {{ items|length }}
-    </a>
-</header>
+    <div class="carrito-container">
 
-<div class="carrito-container">
+        <h1 class="carrito-title">🛒 Tu Carrito</h1>
 
-    {% if items %}
-        <h2 class="carrito-title">Tus discos seleccionados</h2>
+        <!-- SI HAY ITEMS -->
+        {% if items|length > 0 %}
+            
+            <div class="carrito-grid">
+                {% for item in items %}
+                    <div class="carrito-item">
+                        <img src="/static/{{ item.img }}" class="carrito-img">
 
-        <div class="carrito-lista">
-            {% for item in items %}
-            <div class="carrito-card">
-                <img src="/static/{{ item.img }}" alt="{{ item.title }}">
+                        <h2 class="carrito-nombre">{{ item.title }}</h2>
 
-                <div class="carrito-info">
-                    <p class="carrito-nombre">{{ item.title }}</p>
-
-                    <form action="/eliminar" method="POST">
-                        <input type="hidden" name="album_id" value="{{ item.id }}">
-                        <button class="carrito-eliminar">Quitar</button>
-                    </form>
-                </div>
+                        <form action="/eliminar" method="POST">
+                            <input type="hidden" name="album_id" value="{{ item.id }}">
+                            <button class="btn-eliminar">Eliminar</button>
+                        </form>
+                    </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
 
-        <div class="carrito-total-box">
-            <p class="carrito-total">Total: <span>${{ items|length * 5000 }}</span></p>
-        </div>
-</div>
-{% if items %}
-<form action="/finalizar" method="POST">
-    <button class="btn-disco" style="margin-top:25px;">Finalizar compra</button>
-</form>
-{% else %}
-<p style="text-align:center; color:#6B3E2E; font-family:'Georgia', serif;">Tu carrito está vacío 💔</p>
-{% endif %}
+            <!-- BOTÓN FINALIZAR COMPRA -->
+            <form action="/finalizar" method="POST" style="text-align:center; margin-top:30px;">
+                <button class="btn-disco">Finalizar compra</button>
+            </form>
 
+        {% else %}
+        <!-- SI EL CARRITO ESTÁ VACÍO -->
+            <p class="carrito-vacio">
+                Tu carrito está vacío 💔  
+                <br><br>
+                <a href="/discos" class="btn-disco">Ver discos</a>
+            </p>
+        {% endif %}
+
+    </div>
 
 </body>
 </html>
