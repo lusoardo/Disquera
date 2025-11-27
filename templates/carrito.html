@@ -50,6 +50,14 @@
     {% endif %}
 
 </div>
+{% if items %}
+<form action="/finalizar" method="POST">
+    <button class="btn-disco" style="margin-top:25px;">Finalizar compra</button>
+</form>
+{% else %}
+<p style="text-align:center; color:#6B3E2E; font-family:'Georgia', serif;">Tu carrito está vacío 💔</p>
+{% endif %}
+
 
 </body>
 </html>
