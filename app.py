@@ -78,6 +78,19 @@ def eliminar():
 
     return redirect("/carrito")
 
+@app.route("/finalizar", methods=["POST"])
+def finalizar():
+    cart = session.get("cart", [])
+
+    if not cart:
+        return redirect("/carrito")  # evita compras vacías
+
+    session["cart"] = []
+    session.modified = True
+
+    return render_template("finalizado.html")
+
+
 
 # ---- RUN ----
 if __name__ == "__main__":
