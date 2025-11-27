@@ -41,14 +41,7 @@
 
         <div class="carrito-total-box">
             <p class="carrito-total">Total: <span>${{ items|length * 5000 }}</span></p>
-
-            <button class="carrito-comprar">Finalizar compra</button>
         </div>
-
-    {% else %}
-        <h2 class="carrito-title">Tu carrito está vacío 😢</h2>
-    {% endif %}
-
 </div>
 {% if items %}
 <form action="/finalizar" method="POST">
