@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body style="background:#FFF8E0;">
+
+<header class="header">
+    <a href="/" class="back">⬅ Volver</a>
+
+    <h1 class="logo">CARRITO</h1>
+
+    <a href="/carrito" class="cart-icon" style="color:#FFF8E0; font-size:22px;">
+        🛒 {{ items|length }}
+    </a>
+</header>
+
+<div class="carrito-container">
+
+    {% if items %}
+        <h2 class="carrito-title">Tus discos seleccionados</h2>
+
+        <div class="carrito-lista">
+            {% for item in items %}
+            <div class="carrito-card">
+                <img src="/static/{{ item.img }}" alt="{{ item.title }}">
+
+                <div class="carrito-info">
+                    <p class="carrito-nombre">{{ item.title }}</p>
+
+                    <form action="/eliminar" method="POST">
+                        <input type="hidden" name="album_id" value="{{ item.id }}">
+                        <button class="carrito-eliminar">Quitar</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="carrito-total-box">
+            <p class="carrito-total">Total: <span>${{ items|length * 5000 }}</span></p>
+
+            <button class="carrito-comprar">Finalizar compra</button>
+        </div>
+
+    {% else %}
+        <h2 class="carrito-title">Tu carrito está vacío 😢</h2>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
