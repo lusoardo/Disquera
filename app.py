@@ -29,7 +29,7 @@ def home():
 
 @app.route("/discos")
 def discos():
-    return render_template("discos.html", albums=albums)
+ return render_template("discos.html", albums=albums, cart_count=len(session.get("cart", [])))
 
 @app.route("/historia")
 def historia():
@@ -37,3 +37,20 @@ def historia():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+@app.route("/agregar", methods=["POST"])
+def agregar():
+    album_id = int(request.form["album_id"])
+
+    if "cart" not in session:
+        session["cart"] = []
+
+    session["cart"].append(album_id)
+    session.modified = True
+
+    return redirect("/")
+
+@app.route("/carrito")
+def carrito():
+    cart_ids = session.get("cart", [])
+    items = [a for a in albums if a["id"] in cart_ids]
+    return render_template("carrito.html", items=items)
