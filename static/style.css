@@ -162,4 +162,106 @@ body {
     line-height: 1.6;
     box-shadow: 5px 5px 0 #D66C3A;
 }
+/* ---- CARRITO ---- */
+
+.carrito-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.carrito-title {
+    text-align: center;
+    font-size: 32px;
+    font-family: "Georgia", serif;
+    color: #6B3E2E;
+    text-shadow: 3px 3px 0 #E8A87C;
+    margin-bottom: 30px;
+}
+
+.carrito-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.carrito-card {
+    display: flex;
+    background: #E8A87C;
+    border: 4px solid #6B3E2E;
+    border-radius: 12px;
+    padding: 15px;
+    align-items: center;
+    box-shadow: 5px 5px 0 #D66C3A;
+}
+
+.carrito-card img {
+    width: 120px;
+    border-radius: 8px;
+    border: 3px solid #6B3E2E;
+}
+
+.carrito-info {
+    margin-left: 20px;
+}
+
+.carrito-nombre {
+    font-family: "Georgia", serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: #6B3E2E;
+    margin-bottom: 10px;
+}
+
+.carrito-eliminar {
+    background: #6B3E2E;
+    color: #FFF8E0;
+    padding: 8px 15px;
+    border: 2px solid #FFF8E0;
+    border-radius: 8px;
+    font-family: "Georgia", serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.carrito-eliminar:hover {
+    background: #D66C3A;
+    transform: scale(1.05);
+}
+
+.carrito-total-box {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.carrito-total {
+    font-size: 26px;
+    font-family: "Georgia", serif;
+    color: #6B3E2E;
+    margin-bottom: 20px;
+}
+
+.carrito-total span {
+    font-weight: bold;
+    color: #D66C3A;
+}
+
+.carrito-comprar {
+    background: #D66C3A;
+    color: #FFF8E0;
+    padding: 12px 30px;
+    border-radius: 10px;
+    border: 3px solid #6B3E2E;
+    font-family: "Georgia", serif;
+    font-size: 22px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.carrito-comprar:hover {
+    background: #E8A87C;
+    transform: scale(1.1);
+}
+
 
