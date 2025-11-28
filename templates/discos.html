@@ -2,19 +2,26 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Discos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discos - Discogs</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
 <header class="header">
-    <a href="/" class="back">⬅ Volver</a>
-
+    <!-- Fila superior con navegación -->
+    <div class="header-top">
+        <a href="/" class="back">⬅ Volver</a>
+        
+        <div class="logo">DISCOGS</div>
+        
+        <a href="/carrito" class="cart-icon">
+            🛒 <span id="cart-count">{{ cart_count }}</span>
+        </a>
+    </div>
+    
+    <!-- Barra de búsqueda centrada abajo -->
     <input id="search" type="text" placeholder="Buscar álbum..." class="search-bar">
-
-    <a href="/carrito" class="cart-icon">
-        🛒 <span id="cart-count">{{ cart_count }}</span>
-    </a>
 </header>
 
 <div class="gallery">
@@ -23,10 +30,10 @@
         <img src="/static/{{ album.img }}" alt="{{ album.title }}">
         <p class="title">{{ album.title }}</p>
 
-        <!-- Botón agregar -->
+        <!-- Botón agregar mejorado -->
         <form action="/agregar" method="POST">
             <input type="hidden" name="album_id" value="{{ album.id }}">
-            <button class="add-btn" type="submit">Agregar al carrito</button>
+            <button class="add-btn" type="submit">Agregar al Carrito</button>
         </form>
     </div>
     {% endfor %}
@@ -41,7 +48,6 @@
 
         cards.forEach(card => {
             const title = card.getAttribute("data-title");
-
             card.style.display = title.includes(query) ? "block" : "none";
         });
     });

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, jsonify
 
 app = Flask(__name__)
 app.secret_key = "clave-segura"
@@ -32,6 +32,7 @@ albums = [
 def home():
     return render_template("index.html")
 
+
 @app.route("/discos")
 def discos():
     return render_template(
@@ -40,15 +41,17 @@ def discos():
         cart_count=len(session.get("cart", []))
     )
 
+
 @app.route("/historia")
 def historia():
     return render_template("historia.html")
 
 
-# ---- AGREGAR AL CARRITO ----
+# ---- AGREGAR AL CARRITO (SIN RECARGAR) ----
 @app.route("/agregar", methods=["POST"])
 def agregar():
-    album_id = int(request.form["album_id"])
+    data = request.get_json()   # Recibe JSON desde fetch()
+    album_id = int(data["album_id"])
 
     if "cart" not in session:
         session["cart"] = []
@@ -56,7 +59,10 @@ def agregar():
     session["cart"].append(album_id)
     session.modified = True
 
-    return redirect("/discos")
+    return jsonify({
+        "status": "ok",
+        "cart_total": len(session["cart"])
+    })
 
 
 # ---- MOSTRAR CARRITO ----
@@ -78,18 +84,19 @@ def eliminar():
 
     return redirect("/carrito")
 
+
+# ---- FINALIZAR COMPRA ----
 @app.route("/finalizar", methods=["POST"])
 def finalizar():
     cart = session.get("cart", [])
 
     if not cart:
-        return redirect("/carrito")  # evita compras vacías
+        return redirect("/carrito")
 
     session["cart"] = []
     session.modified = True
 
     return render_template("finalizado.html")
-
 
 
 # ---- RUN ----
