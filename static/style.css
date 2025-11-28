@@ -4,59 +4,253 @@ body {
     background: #121212;
     color: white;
 }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* ---- Página principal ---- */
+        body {
+            font-family: "Georgia", serif;
+            background: #FFF8E0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
 
-.home-body {
-    background: #FFF8E0; 
-    font-family: "Georgia", serif;
-}
+        /* Decoración de fondo con círculos de vinilo */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(107, 62, 46, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+            animation: float 8s ease-in-out infinite;
+        }
 
-.home-container {
-    text-align: center;
-    padding-top: 80px;
-}
+        body::after {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(214, 108, 58, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -120px;
+            left: -120px;
+            animation: float 6s ease-in-out infinite reverse;
+        }
 
-.home-title {
-    font-size: 70px;
-    letter-spacing: 8px;
-    color: #6B3E2E; /* marrón disco */
-    text-shadow: 
-        3px 3px 0 #E8A87C,   /* naranja suave */
-        6px 6px 0 #D66C3A;   /* naranja retro fuerte */
-    margin-bottom: 10px;
-    font-weight: bold;
-}
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
 
-/* SUBTÍTULO */
-.home-sub {
-    font-size: 22px;
-    color: #8A5A44;
-    margin-bottom: 40px;
-    font-style: italic;
-}
+        .home-container {
+            text-align: center;
+            padding: 60px 50px;
+            background: rgba(255, 248, 224, 0.95);
+            border-radius: 25px;
+            box-shadow: 
+                0 10px 40px rgba(107, 62, 46, 0.2),
+                inset 0 0 0 5px #6B3E2E;
+            width: 100%;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
 
-/* BOTONES DISCO */
-.home-buttons .btn {
-    background: #D66C3A;
-    color: #FFF8E0;
-    padding: 15px 25px;
-    margin: 10px;
-    text-decoration: none;
-    border-radius: 10px;
-    font-size: 20px;
-    transition: .2s;
-    border: 3px solid #6B3E2E;
-}
+        .home-title {
+            font-size: 80px;
+            letter-spacing: 12px;
+            color: #6B3E2E;
+            text-shadow: 
+                3px 3px 0 #E8A87C,
+                6px 6px 0 #D66C3A;
+            margin-bottom: 15px;
+            font-weight: bold;
+            animation: titlePulse 3s ease-in-out infinite;
+        }
 
-.home-buttons .btn:hover {
-    background: #E8A87C;
-    transform: scale(1.08);
-}
+        @keyframes titlePulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
 
+        .home-sub {
+            font-size: 26px;
+            color: #8A5A44;
+            margin-bottom: 50px;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .home-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: block;
+            background: #D66C3A;
+            color: #FFF8E0;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 24px;
+            font-family: "Georgia", serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 4px solid #6B3E2E;
+            box-shadow: 
+                0 6px 0 #6B3E2E,
+                0 8px 20px rgba(107, 62, 46, 0.3);
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: #E8A87C;
+            transform: translateY(-3px);
+            box-shadow: 
+                0 9px 0 #6B3E2E,
+                0 12px 25px rgba(107, 62, 46, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 
+                0 4px 0 #6B3E2E,
+                0 6px 15px rgba(107, 62, 46, 0.3);
+        }
+
+        /* Decoración de vinil en las esquinas */
+        .vinyl-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: 
+                radial-gradient(circle at center, #FFF8E0 25%, transparent 25%),
+                radial-gradient(circle at center, #6B3E2E 0%, #6B3E2E 100%);
+            opacity: 0.15;
+            border: 3px solid #6B3E2E;
+        }
+
+        .vinyl-1 {
+            top: -30px;
+            left: -30px;
+            animation: rotate 20s linear infinite;
+        }
+
+        .vinyl-2 {
+            bottom: -30px;
+            right: -30px;
+            animation: rotate 15s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Efecto de notas musicales flotantes */
+        .note {
+            position: absolute;
+            font-size: 30px;
+            color: #D66C3A;
+            opacity: 0.1;
+            animation: floatNote 10s ease-in-out infinite;
+        }
+
+        .note:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .note:nth-child(2) {
+            top: 70%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+        .note:nth-child(3) {
+            top: 40%;
+            right: 8%;
+            animation-delay: 6s;
+        }
+
+        @keyframes floatNote {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.1;
+            }
+            50% {
+                transform: translateY(-30px) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .home-container {
+                padding: 40px 30px;
+            }
+
+            .home-title {
+                font-size: 50px;
+                letter-spacing: 6px;
+            }
+
+            .home-sub {
+                font-size: 20px;
+                margin-bottom: 35px;
+            }
+
+            .btn {
+                padding: 18px 30px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .home-title {
+                font-size: 38px;
+                letter-spacing: 4px;
+            }
+
+            .home-sub {
+                font-size: 18px;
+            }
+
+            .btn {
+                padding: 16px 25px;
+                font-size: 18px;
+            }
+        }
 /* ---- Página de discos ---- */
-
-/* ---- HEADER VINTAGE ---- */
 
 .header {
     display: flex;
